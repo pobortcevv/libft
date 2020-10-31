@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 16:54:23 by sabra             #+#    #+#             */
-/*   Updated: 2020/10/31 23:20:33 by sabra            ###   ########.fr       */
+/*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
+/*   Updated: 2020/10/31 21:41:30 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <unistd.h>
-#include <stdio.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+void	bzero(void *s, size_t n)
 {
+	char			*c;
 	size_t			i;
-	unsigned char	*str;
 
+	c = s;
 	i = 0;
-	str = (unsigned char*)b;
-	while (i < len)
+	while (i < n)
 	{
-		str[i] = c;
+		c[i] = '\0';
 		i++;
 	}
-	return (str);
 }
