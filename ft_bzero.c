@@ -6,13 +6,13 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
-/*   Updated: 2020/10/31 21:41:30 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/01 14:04:30 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	char			*c;
 	size_t			i;

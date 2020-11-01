@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 13:14:56 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/01 14:26:31 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/01 14:28:13 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/01 14:36:04 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include <string.h>
 
-int		ft_isdigit(int c)
+size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
 {
-	if (c >= '0' && c <= '9')
-	{
-		return (1);
-	}
-	return (0);
+	
 }

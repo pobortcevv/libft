@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 13:14:56 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/01 14:26:31 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/01 14:36:27 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/01 14:55:22 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include <string.h>
 
-int		ft_isdigit(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= '0' && c <= '9')
+	int		i;
+	char	*str;
+	
+	str = (char *)s;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		return (1);
+		if (str[i] == (char)c)
+		{
+			return (&str[i]);
+		}
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
