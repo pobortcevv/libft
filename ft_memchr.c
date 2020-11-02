@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:22:03 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/01 14:06:46 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/02 22:09:28 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
 	char			sought;
-	unsigned char 	*source;
+	char 			*source;
 
 	sought = (char)c;
-	source = (unsigned char *)s;
+	source = (char *)s;
 	i = 0;
 	while (i < n)
 	{

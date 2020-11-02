@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 22:24:26 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/02 23:06:15 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/02 21:18:49 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/02 22:05:29 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			i;
-	char	stop;
-	char	*destination;
-	char	*source;
+	void	*result;
 
-	destination = (char*)dest;
-	source = (char*)src;
-	stop = (char)c;
-
-	i = 0;
-	while (i < n)
-	{
-		if (source[i] != stop)
-		{
-			destination[i] = source[i];
-		}
-		else
-		{
-			destination[i] = source[i];
-			return (&destination[i + 1]);
-		}
-		i++;
-	}
-	return(NULL);
+	result = malloc(nmemb * size);
+  	ft_memset(result, 0, nmemb * size);
+  	return (result);
 }
