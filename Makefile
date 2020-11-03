@@ -14,6 +14,15 @@ SRC		= ${SRCDIR}ft_memset.c \
 		  ${SRCDIR}ft_strdup.c \
 		  ${SRCDIR}ft_strlcat.c \
 		  ${SRCDIR}ft_calloc.c \
+		  ${SRCDIR}ft_isalnum.c \
+		  ${SRCDIR}ft_isalpha.c \
+		  ${SRCDIR}ft_isascii.c \
+		  ${SRCDIR}ft_isprint.c \
+		  ${SRCDIR}ft_memcmp.c \
+		  ${SRCDIR}ft_strchr.c \
+		  ${SRCDIR}ft_strncmp.c \
+		  ${SRCDIR}ft_tolower.c \
+		  ${SRCDIR}ft_toupper.c \
 		  ${SRCDIR}ft_strlen.c
 OBJ		= ${patsubst ${SRCDIR}%.c, ${OBJDIR}%.o, ${SRC}}
 CC		= gcc

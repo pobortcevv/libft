@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabra <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:57:57 by sabra             #+#    #+#             */
-/*   Updated: 2020/07/21 11:54:06 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/03 21:02:46 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,27 @@ int		spaces(char *str, int i)
 
 int		stat(char *str, int i)
 {
-	if (str[i] == '-' || str[i] == '+')
+	int count_minus;
+	int count_plus;
+
+	count_minus = 0;
+	count_plus = 0;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		while (str[i] == '-' || str[i] == '+')
+		if (str[i] == '-')
 		{
-			i++;
+			count_minus++;
 		}
+		else
+		{
+			count_plus++;
+		}
+		i++;
+	}
+	if (count_minus > 1 ||count_plus > 1 || 
+		(count_plus == 1 && count_minus > 0))
+	{
+		return (-1);
 	}
 	return (i);
 }
@@ -42,20 +57,20 @@ int		count_min(char *str)
 {
 	int i1;
 	int i;
-	int am;
+	int amount;
 
-	am = 0;
+	amount = 0;
 	i1 = 0;
 	i = spaces(str, i1);
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-')
 	{
 		while (str[i] == '-')
 		{
 			i++;
-			am++;
+			amount++;
 		}
 	}
-	return (am);
+	return (amount);
 }
 
 int		ft_atoi(char *str)
@@ -69,6 +84,8 @@ int		ft_atoi(char *str)
 	res = 0;
 	i = spaces(str, i);
 	i = stat(str, i);
+	if (i < 0)
+		return (0);
 	if (str[i] >= '0' && str[i] <= '9')
 	{
 		while (str[i] >= '0' && str[i] <= '9')
@@ -76,11 +93,10 @@ int		ft_atoi(char *str)
 			res = (res * 10) + str[i] - '0';
 			i++;
 		}
+		countm = count_min(str);
+		if (countm % 2 != 0)
+			res = -res;
+		return (res);
 	}
-	countm = count_min(str);
-	if (countm % 2 != 0)
-	{
-		res = -res;
-	}
-	return (res);
+	return (0);
 }

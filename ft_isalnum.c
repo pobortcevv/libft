@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 22:43:03 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/03 21:11:12 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/03 12:40:34 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/03 12:49:11 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "libft.h"
-
-void	*ft_memmove (void *dest, const void *src, size_t n)
+int		ft_isalnum(int character)
 {
-	size_t			i;
-	unsigned char 	*destination;
-	unsigned char 	*source;
-	
-	destination = (unsigned char *)dest;
-	source = (unsigned char *)src;
-	i = 0;
-	if (ft_strlen((char *)source) == 0)
-	{
-		return (destination);
+	char	chr;
+
+	chr = (char)character;
+	if ((chr >= '0' && chr <= '9') || (chr >= 'a' && chr <= 'z')
+		|| (chr >= 'A' &&  chr <= 'Z'))
+	{		
+		return (1);
 	}
-	while (i < n)
-	{
-		destination[i] = source[i];
-		i++;
-	}
-	return(destination);
+	return (0);
 }

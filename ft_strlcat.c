@@ -3,38 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabra <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 11:18:33 by sabra             #+#    #+#             */
-/*   Updated: 2020/07/19 12:35:24 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/03 12:36:12 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				lenstr(char *str)
-{
-	unsigned int n;
+#include <string.h>
+#include "libft.h"
 
-	n = 0;
-	while (str[n] != '\0')
-	{
-		n++;
-	}
-	return (n);
-}
-
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t		ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	int				end;
-	unsigned int	resu;
+	size_t			i;
+	size_t			end;
+	char			*source;
 
 	i = 0;
-	end = lenstr(dest);
+	source = (char *)src;
+	end = ft_strlen(dest);
+	if (ft_strlen(source) == 0)
+		return (ft_strlen(dest));
 	while (i < size)
 	{
-		dest[end + i] = src[i];
+		dest[end] = src[i];
+		end++;
 		i++;
 	}
-	resu = lenstr(dest);
-	return (resu);
+	dest[end] = '\0';
+	return (ft_strlen(dest));
 }
