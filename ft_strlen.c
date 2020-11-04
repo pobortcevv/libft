@@ -6,15 +6,15 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 09:50:35 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/03 21:11:03 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 11:52:54 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

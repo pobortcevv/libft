@@ -6,11 +6,11 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 13:28:42 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/03 13:30:52 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 11:13:14 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int character)
+int		ft_isprint(int character)
 {
 	if (character >= 32 && character < 127)
 	{

@@ -6,11 +6,10 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:28:13 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/04 08:58:00 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 11:38:18 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
@@ -21,12 +20,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	source = (char *)src;
 	if (!dst || !src)
-		return (0);
-	while (i < dstsize)
+		return (-1);
+	if (dstsize == 0)
+		return (ft_strlen(source));
+	while (source[i] != '\0' && i < dstsize - 1)
 	{
 		dst[i] = source[i];
 		i++;
 	}
 	dst[i] = '\0';
-	return (ft_strlen(dst));
+	return (ft_strlen(source));
 }

@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabra <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 09:18:58 by sabra             #+#    #+#             */
-/*   Updated: 2020/07/24 19:13:53 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 11:35:17 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -43,7 +31,7 @@ char	*ft_strdup(char *src)
 	char *dest;
 
 	dest = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (dest == (void *)0)
+	if (dest == NULL)
 		return (0);
 	dest = ft_strcpy(dest, src);
 	return (dest);

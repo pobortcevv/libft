@@ -6,31 +6,19 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:56:03 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/01 16:37:02 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 12:09:47 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-size_t		ft_strlen(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
 	char	*str;
 	int		last_index;
-	size_t len;
-	
+	size_t	len;
+
 	last_index = -1;
 	str = (char *)s;
 	i = 0;

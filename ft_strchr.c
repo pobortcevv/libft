@@ -6,18 +6,17 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:36:27 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/04 07:17:10 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 17:02:11 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	char	*str;
-	
+	size_t		i;
+	char		*str;
+
 	str = (char *)s;
 	i = 0;
 	while (i <= ft_strlen(str))

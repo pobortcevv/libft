@@ -6,17 +6,14 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 12:49:54 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/03 12:58:43 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 13:05:20 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int character)
+int		ft_isalpha(int chr)
 {
-	char	chr;
-
-	chr = (char)character;
 	if ((chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z'))
-	{	
+	{
 		return (1);
 	}
 	return (0);
