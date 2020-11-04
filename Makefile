@@ -23,6 +23,7 @@ SRC		= ${SRCDIR}ft_memset.c \
 		  ${SRCDIR}ft_strncmp.c \
 		  ${SRCDIR}ft_tolower.c \
 		  ${SRCDIR}ft_toupper.c \
+		  ${SRCDIR}ft_strlcpy.c \
 		  ${SRCDIR}ft_strlen.c
 OBJ		= ${patsubst ${SRCDIR}%.c, ${OBJDIR}%.o, ${SRC}}
 CC		= gcc

@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 15:39:34 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/03 21:10:57 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/04 07:38:33 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char			*ft_strnstr(const char *str_a, const char *str_b, size_t len);
 int				ft_atoi(char *str);
 char			*ft_strdup(char *src);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
+size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_isalnum(int character);
 int				ft_isalpha(int character);
