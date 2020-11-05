@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:06:42 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/04 18:12:15 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/05 11:41:58 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,16 @@
 
 char		*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	start;
+	size_t 	start;
 	size_t	end;
-	char	*str;
 
-	i = 0;
-	while (ft_strchr(set, s1[i]) && i < ft_strlen(s1))
-		i++;
-	start = i;
-	i = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[i]) && i >= 0)
-		i--;
-	end = i;
-	if (start > end)
-	{
-		return ((char *)s1);
-	}
-	str = (char *)malloc((end - start) + 2);
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (start <= end)
-	{
-		str[i] = s1[start];
+	if (!s1 || !set)
+		return (0);
+	end = ft_strlen(s1);
+	start = 0;
+	while (ft_strchr(set, s1[start]) && s1)
 		start++;
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
+	while (ft_strchr(set, s1[end - 1]) && start < end)
+		end--;
+	return (ft_substr(s1, start, end - start));
+}	
