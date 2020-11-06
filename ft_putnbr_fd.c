@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 14:52:26 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/05 22:05:46 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/06 10:11:00 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/06 10:21:47 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*substr;
-	char	*string;
-
-	if (start >= ft_strlen(s))
+	char	*num;
+	if (n < 0)
 	{
-		substr = (char *)malloc(1);
-		substr[0] = '\0';
-		return (substr);
+		write (fd, "-", 1);
+		n *= -1;
 	}
-	if (!(substr = (char *)malloc(sizeof(char)*(len + 1))))
-		return (NULL);
-	string = (char *)s;
-	i = 0;
-	while (len-- && string[start])
+	num = ft_itoa(n);
+	while (*num)
 	{
-		substr[i] = string[start];
-		i++;
-		start++;
+		write (fd, num, 1);
+		num++;
 	}
-	substr[i] = '\0';
-	return (substr);
 }

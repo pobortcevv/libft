@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 14:52:26 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/05 22:05:46 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/06 10:06:14 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/06 10:10:06 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-	char	*substr;
-	char	*string;
-
-	if (start >= ft_strlen(s))
+	while(*s)
 	{
-		substr = (char *)malloc(1);
-		substr[0] = '\0';
-		return (substr);
+		write(fd, s, 1);
+		s++;
 	}
-	if (!(substr = (char *)malloc(sizeof(char)*(len + 1))))
-		return (NULL);
-	string = (char *)s;
-	i = 0;
-	while (len-- && string[start])
-	{
-		substr[i] = string[start];
-		i++;
-		start++;
-	}
-	substr[i] = '\0';
-	return (substr);
+	write(fd, "\n", 1);
 }
