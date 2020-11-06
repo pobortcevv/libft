@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 10:11:00 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 14:07:55 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/06 20:09:39 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/06 20:38:27 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*num;
-	
-	num = ft_itoa(n);
-	while (*num)
+	t_list	*elem;
+
+	if (!lst)
+		return (NULL);
+	while (lst)
 	{
-		write (fd, num, 1);
-		num++;
+		f(lst->content);
+		if (!(elem = (t_list *)malloc(sizeof(elem))))
+		{
+			return (NULL);
+		}
+		elem = lst;
+		del(lst->content);
+		free(lst);
+		lst = elem->next;
 	}
+	return (lst);
 }

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 10:11:00 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 14:07:55 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/06 18:48:41 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/06 18:51:52 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*num;
-	
-	num = ft_itoa(n);
-	while (*num)
+	if(!lst)
+		return (NULL);
+	while(lst->next != NULL)
 	{
-		write (fd, num, 1);
-		num++;
+		lst = lst->next;
 	}
+	return (lst);
 }

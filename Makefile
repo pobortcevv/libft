@@ -1,7 +1,6 @@
-NAME	= libft.a
 SRCDIR	= ./
 OBJDIR	= ./
-SRC		= ${SRCDIR}ft_memset.c \
+SRCS	= ${SRCDIR}ft_memset.c \
 		  ${SRCDIR}ft_bzero.c \
 		  ${SRCDIR}ft_memcpy.c \
 		  ${SRCDIR}ft_memccpy.c \
@@ -35,27 +34,38 @@ SRC		= ${SRCDIR}ft_memset.c \
 		  ${SRCDIR}ft_putendl_fd.c \
 		  ${SRCDIR}ft_putnbr_fd.c \
 		  ${SRCDIR}ft_strlen.c
-OBJ		= ${patsubst ${SRCDIR}%.c, ${OBJDIR}%.o, ${SRC}}
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+OBJS			= $(SRCS:.c=.o)
 
-${OBJDIR}%.o: ${SRCDIR}%.c
-	${CC} ${CFLAGS} -c $< -o $@
+BONUS			=	$(SRCDIR)ft_lstnew.c \
+					$(SRCDIR)ft_lstadd_front.c \
+					$(SRCDIR)ft_lstsize.c \
+					$(SRCDIR)ft_lstlast.c \
+					$(SRCDIR)ft_lstadd_back.c \
+					$(SRCDIR)ft_lstdelone.c \
+					$(SRCDIR)ft_lstclear.c \
+					$(SRCDIR)ft_lstiter.c \
+					$(SRCDIR)ft_lstmap.c \
 
-$(NAME): ${OBJ}
-	ar rc ${NAME} ${OBJ}
-	ranlib ${NAME}
+BONUS_OBJS		= 	$(BONUS:.c=.o)
 
-all:  ${NAME}
+CC				= gcc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror
+
+NAME			= libft.a
+
+all:			$(NAME)
+
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -rf ${OBJ}
+				$(RM) $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	rm -rf ${NAME}
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
 
-so: ${OBJ}
-	ar rc libft.so ${OBJ}
-	ranlib libft.so
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)

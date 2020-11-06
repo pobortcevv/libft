@@ -6,58 +6,65 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 23:00:15 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 00:01:51 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/06 14:05:30 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_num_convert(int n, char* str, size_t len)
+size_t	ft_num_len(long int n)
 {
-	int i;
+	size_t	len;
 
-	i = len;
+	len = 1;
+	if (n < 0)
+		len++;
+	if (n != 0)
+	{
+		len = 0;
+		if (n < 0)
+			len++;
+		while (n != 0)
+		{
+			n /= 10;
+			len++;
+		}
+	}
+	return(len);
+}
+
+char	*ft_num_convert(long int n, char* str, size_t len)
+{
+	str[len] = '\0';
 	if (n < 0)
 	{
 		str[0] = '-';
-		n *= -1;
+		n = -n;
 	}
 	if (n == 0)
 		str[0] = '0';
 	else
 	{
 		len--;
-		while (n > 0)
+		while (n != 0)
 		{
 			str[len] = (n % 10) + '0';
 			n /= 10;
 			len--;
 		}
 	}
-	str[i] = '\0';
 	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	size_t	len;
-	char	*str;
-	int		buff;
+	size_t		len;
+	long int	num;
+	char		*str;
 
-	len = 0;
-	if (n <= 0)
-	{
-		len++;
-		buff = (-1) * n;
-	}
-	else
-		buff = n;
-	while (buff > 0)
-	{
-		buff /= 10;
-		len++;
-	}
+	num = (long int)n;
+	len = ft_num_len(num);
 	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	return (ft_num_convert(n, str, len));
+	return (ft_num_convert(num, str, len));
 }

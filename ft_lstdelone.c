@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 10:11:00 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 14:07:55 by sabra            ###   ########.fr       */
+/*   Created: 2020/11/06 19:15:19 by sabra             #+#    #+#             */
+/*   Updated: 2020/11/06 20:03:13 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	char	*num;
-	
-	num = ft_itoa(n);
-	while (*num)
+	if (lst)
 	{
-		write (fd, num, 1);
-		num++;
+		del(lst->content);
+		free(lst);
 	}
+	else
+	{
+		free(lst);
+	}
+	
 }
