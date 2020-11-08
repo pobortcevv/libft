@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 00:03:16 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 00:16:39 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:59:09 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	}
 	new_str[i] = '\0';
-	return(new_str);
+	return (new_str);
 }

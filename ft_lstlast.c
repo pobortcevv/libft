@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 18:48:41 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 18:51:52 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:52:36 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if(!lst)
+	if (!lst)
 		return (NULL);
-	while(lst->next != NULL)
+	while (lst->next != NULL)
 	{
 		lst = lst->next;
 	}

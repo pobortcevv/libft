@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 18:52:25 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 19:13:46 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:56:42 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (*lst)
 	{
 		list = *lst;
-		while(list->next != NULL)
+		while (list->next != NULL)
 		{
 			list = list->next;
 		}
@@ -29,5 +29,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		*lst = new;
 	}
-	
 }

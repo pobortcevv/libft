@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 23:00:15 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/06 14:05:30 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:59:55 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ size_t	ft_num_len(long int n)
 			len++;
 		}
 	}
-	return(len);
+	return (len);
 }
 
-char	*ft_num_convert(long int n, char* str, size_t len)
+char	*ft_num_convert(long int n, char *str, size_t len)
 {
 	str[len] = '\0';
 	if (n < 0)
@@ -64,7 +64,7 @@ char	*ft_itoa(int n)
 
 	num = (long int)n;
 	len = ft_num_len(num);
-	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	return (ft_num_convert(num, str, len));
 }

@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:52:26 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/05 22:05:46 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:55:46 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		substr[0] = '\0';
 		return (substr);
 	}
-	if (!(substr = (char *)malloc(sizeof(char)*(len + 1))))
+	if (!(substr = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	string = (char *)s;
 	i = 0;
