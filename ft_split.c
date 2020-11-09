@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:39:08 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/05 22:57:00 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/09 16:11:15 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ char		**ft_split(char const *s, char c)
 	char	**result;
 
 	i = 0;
-	if (!(result = (char **)malloc(sizeof(char *) * (ft_count(s, c)) + 1)))
+	if (!s ||
+	!(result = (char **)malloc(sizeof(char *) * (ft_count(s, c)) + 1)))
 		return (NULL);
 	while (*s)
 	{

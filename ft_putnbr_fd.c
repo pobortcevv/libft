@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 10:11:00 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/08 18:53:45 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/09 16:33:03 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*num;
+	long int n1;
 
-	num = ft_itoa(n);
-	while (*num)
+	n1 = (long int)n;
+	if (n1 < 0)
 	{
-		write(fd, num, 1);
-		num++;
+		n1 = -n1;
+		ft_putchar_fd('-', fd);
+	}
+	if (n1 < 10)
+		ft_putchar_fd(n1 + 48, fd);
+	else
+	{
+		ft_putnbr_fd(n1 / 10, fd);
+		ft_putnbr_fd(n1 % 10, fd);
 	}
 }

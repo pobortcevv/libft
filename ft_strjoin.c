@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:32:23 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/04 16:05:52 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/09 16:02:22 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		end_1;
 	int		i;
 
+	if (!s1 || !s2)
+		return (NULL);
 	result = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!result)
 		return (NULL);

@@ -6,11 +6,11 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/01 14:04:30 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/09 16:34:37 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

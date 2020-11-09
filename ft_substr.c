@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:52:26 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/08 18:55:46 by sabra            ###   ########.fr       */
+/*   Updated: 2020/11/09 16:01:35 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	char	*string;
 
+	if (!s)
+		return (NULL);
 	if (start >= ft_strlen(s))
 	{
 		substr = (char *)malloc(1);
