@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:57:57 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/04 14:47:16 by sabra            ###   ########.fr       */
+/*   Updated: 2021/01/04 18:42:00 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int				ft_space(char sym)
 	return (0);
 }
 
-int				ft_atoi(char *str)
+int				ft_atoi(const char *str)
 {
 	int			i;
 	int			sign;

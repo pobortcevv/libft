@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 15:39:34 by sabra             #+#    #+#             */
-/*   Updated: 2020/11/11 20:57:45 by sabra            ###   ########.fr       */
+/*   Updated: 2021/01/04 19:15:11 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct	s_list
 {
@@ -22,6 +23,30 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+typedef struct		s_struct
+{
+	int		minus;
+	int		zero;
+	int		width;
+	int		dot_star;
+	int		lenght;
+	char	type;
+}					t_struct;
+
+int				ft_printf(const char *input, ...);
+int				ft_write_common(const char *str, va_list args, int i);
+int				ft_type_init(t_struct flgs, va_list args);
+int				ft_c_type(t_struct flgs, va_list args, int count);
+int				ft_s_type(t_struct flgs, va_list args);
+int				ft_p_type(t_struct flgs, va_list args);
+int				ft_di_type(t_struct flgs, va_list args, int count);
+int				ft_u_type(t_struct flgs, va_list args);
+int				ft_dwx_type(t_struct flgs, va_list args);
+int				ft_upx_type(t_struct flgs, va_list args);
+t_struct		ft_minus_init(t_struct flgs);
+t_struct		ft_width_init(const char *str, t_struct flgs, int i, va_list args);
+t_struct		ft_dot_star_init(const char *str, t_struct flgs, int i, va_list
+args);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -35,7 +60,7 @@ size_t			ft_strlen(const char *str);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(char *str1, char *str2, size_t size);
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 char			*ft_strdup(char *src);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -53,9 +78,10 @@ char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char *s, int fd);
+void			ft_putstr_fd(const char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+void   			ft_putnbr16_fd(unsigned long num, int fd, char *base);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);
