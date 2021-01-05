@@ -6,11 +6,11 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 19:37:52 by sabra             #+#    #+#             */
-/*   Updated: 2021/01/04 19:25:36 by sabra            ###   ########.fr       */
+/*   Updated: 2021/01/05 09:52:19 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_mod(int fd, char **container)
 {
@@ -46,17 +46,17 @@ int		ft_readfile(int fd, char **line, char **container)
 		container[fd][count] = '\0';
 		if ((ft_strchr(container[fd], '\n')))
 		{
-			*line = (!(*line) ? ft_strdup(container[fd]) :
-			ft_strjoin(*line, container[fd]));
+			*line = (!(*line) ? ft_strdup_gnl(container[fd]) :
+			ft_strjoin_gnl(*line, container[fd]));
 			if (!(*line))
 				return (-1);
 			container[fd] = ft_mod(fd, container);
 			return (1);
 		}
-		*line = ft_strjoin(*line, container[fd]);
+		*line = ft_strjoin_gnl(*line, container[fd]);
 	}
 	if (count == 0 && !(*line))
-		*line = ft_strdup("\0");
+		*line = ft_strdup_gnl("\0");
 	return (count == -1 ? (-1) : 0);
 }
 
@@ -64,14 +64,14 @@ int		cont_check(int fd, char **line, char **container)
 {
 	if ((ft_strchr(container[fd], '\n')))
 	{
-		if (!(*line = ft_strdup(container[fd])))
+		if (!(*line = ft_strdup_gnl(container[fd])))
 			return (-1);
 		container[fd] = ft_mod(fd, container);
 		return (1);
 	}
 	else
 	{
-		if (!(*line = ft_strdup(container[fd])))
+		if (!(*line = ft_strdup_gnl(container[fd])))
 			return (-1);
 	}
 	return (2);

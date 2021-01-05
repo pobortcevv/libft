@@ -6,7 +6,7 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 15:39:34 by sabra             #+#    #+#             */
-/*   Updated: 2021/01/04 19:15:11 by sabra            ###   ########.fr       */
+/*   Updated: 2021/01/05 09:54:49 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# define BUFFER_SIZE 1024
 
 typedef struct	s_list
 {
@@ -35,6 +36,8 @@ typedef struct		s_struct
 
 int				ft_printf(const char *input, ...);
 int				ft_write_common(const char *str, va_list args, int i);
+char				*ft_strdup_gnl(char *src);
+char				*ft_strjoin_gnl(char *s1, char *s2);
 int				ft_type_init(t_struct flgs, va_list args);
 int				ft_c_type(t_struct flgs, va_list args, int count);
 int				ft_s_type(t_struct flgs, va_list args);

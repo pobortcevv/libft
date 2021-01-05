@@ -6,25 +6,13 @@
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 14:36:59 by sabra             #+#    #+#             */
-/*   Updated: 2021/01/04 19:25:25 by sabra            ###   ########.fr       */
+/*   Updated: 2021/01/05 09:49:24 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strdup(char *src)
+char	*ft_strdup_gnl(char *src)
 {
 	char	*dest;
 	int		i;
@@ -42,25 +30,7 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	size_t		i;
-	char		*str;
-
-	str = (char *)s;
-	i = 0;
-	while (i <= ft_strlen(str))
-	{
-		if (str[i] == (char)c)
-		{
-			return (&str[i]);
-		}
-		i++;
-	}
-	return (NULL);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*result;
 	int		end_1;
