@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_free_mat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sabra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
-/*   Updated: 2021/02/16 13:35:15 by sabra            ###   ########.fr       */
+/*   Created: 2021/01/06 17:05:16 by sabra             #+#    #+#             */
+/*   Updated: 2021/03/29 08:48:00 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	**ft_free_mat(char **mat)
 {
-	char			*c;
-	size_t			i;
+	int i;
 
-	c = s;
 	i = 0;
-	while (i < n)
+	while (mat[i])
 	{
-		c[i] = 0;
+		ft_free_line(&mat[i]);
 		i++;
 	}
+	free(mat);
+	mat = NULL;
+	return (mat);
+}
+
+void	ft_free_line(char **line)
+{
+	free(*line);
+	*line = NULL;
 }

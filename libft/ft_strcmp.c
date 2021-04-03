@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sabra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/19 09:28:00 by sabra             #+#    #+#             */
-/*   Updated: 2021/03/29 14:04:21 by sabra            ###   ########.fr       */
+/*   Created: 2021/03/29 14:01:35 by sabra             #+#    #+#             */
+/*   Updated: 2021/03/29 14:06:02 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+#include "libft.h"
+
+int		ft_strcmp(char *s1, char *s2)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
@@ -19,9 +21,9 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n)
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
 	i = 0;
-	if (!n)
-		return (0);
-	while (str1[i] == str2[i] && str1[i] && i < (n - 1))
+	if (ft_strlen(s1) != ft_strlen(s2))
+		return (-1);
+	while (str1[i] && str2[i] && str1[i] == str2[i])
 		i++;
 	return (str1[i] - str2[i]);
 }

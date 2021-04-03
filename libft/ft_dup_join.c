@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_dup_join.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sabra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
-/*   Updated: 2021/02/16 13:35:15 by sabra            ###   ########.fr       */
+/*   Created: 2021/03/29 08:25:38 by sabra             #+#    #+#             */
+/*   Updated: 2021/03/29 08:33:41 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char 	*ft_dup_join(char *dup, char *join)
 {
-	char			*c;
-	size_t			i;
+	char *res;
+	char *tmp;
 
-	c = s;
-	i = 0;
-	while (i < n)
-	{
-		c[i] = 0;
-		i++;
-	}
+	if (!dup || !join)
+		return (NULL);
+	tmp = ft_strdup(dup);
+	res = ft_strjoin(tmp, join);
+	if (tmp)
+		ft_free_line(&tmp);
+	return (res);
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_inset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
-/*   Updated: 2021/02/16 13:35:15 by sabra            ###   ########.fr       */
+/*   Created: 2021/01/07 23:59:33 by sabra             #+#    #+#             */
+/*   Updated: 2021/01/08 00:03:02 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_inset(char *line, char *set)
 {
-	char			*c;
-	size_t			i;
+	int	i;
 
-	c = s;
 	i = 0;
-	while (i < n)
+	while (line[i])
 	{
-		c[i] = 0;
+		if (!(ft_strchr(set, line[i])))
+			return (0);
 		i++;
 	}
+	return (1);
 }

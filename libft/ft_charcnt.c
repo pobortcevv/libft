@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_charcnt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabra <sabra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 21:27:17 by sabra             #+#    #+#             */
-/*   Updated: 2021/02/16 13:35:15 by sabra            ###   ########.fr       */
+/*   Created: 2021/01/08 14:15:22 by sabra             #+#    #+#             */
+/*   Updated: 2021/01/08 14:15:51 by sabra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int		ft_charcnt(char *line, int c)
 {
-	char			*c;
-	size_t			i;
+	int count;
+	int i;
 
-	c = s;
 	i = 0;
-	while (i < n)
+	count = 0;
+	while (line[i])
 	{
-		c[i] = 0;
+		if (line[i] == c)
+			count++;
 		i++;
 	}
+	return (count);
 }
